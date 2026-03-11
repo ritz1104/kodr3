@@ -1,12 +1,23 @@
+
 import React, { useState,useEffect } from "react";
 
 const App = () => {
   const [name, setName] = useState("");
   const [age, setAge] = useState("");
+  
 
-  const [post, setpost] = useState([]);
+  const [post, setpost] = useState(()=>{
+    let storage = localStorage.getItem('postData')
+    return storage ? JSON.parse(storage) : [];
+   });
+
+   console.log(post)
   const [editIdx,seteditIdx] = useState(null)
 
+
+  useEffect(()=>{
+    localStorage.setItem('postData',JSON.stringify(post))
+  },[post])
 
   const submitHandler = (e) => {
     e.preventDefault();

@@ -34,3 +34,10 @@ useRef - kisi bhi element ko select karne ke liye
 useContext - global state ko manage karne ke liye
 useReducer - complex chizo ko manage karne ke liye
 useMemo,useCallback - memorization
+
+
+react hook form - kyunki jab hum react me form handleling karne jaate the to code messay hojata tha this why we need
+
+
+routing
+react router dom
