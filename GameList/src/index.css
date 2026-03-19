@@ -1,0 +1,11 @@
+@import "tailwindcss";
+@font-face {
+  font-family: Google_Sans;
+  src: url('./assets/fonts/GoogleSans-Italic-VariableFont_GRAD\,opsz\,wght.ttf');
+}
+
+@font-face {
+  font-family: Google;
+  src: url('./assets/fonts/GoogleSans-VariableFont_GRAD\,opsz\,wght.ttf');
+}
+

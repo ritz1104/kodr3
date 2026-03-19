@@ -41,3 +41,10 @@ react hook form - kyunki jab hum react me form handleling karne jaate the to cod
 
 routing
 react router dom
+
+
+
+context api
+->createContext()- data creation
+->Providing the data
+-->useContext() data use karne ke liye

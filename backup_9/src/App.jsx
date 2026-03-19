@@ -7,14 +7,16 @@ const App = () => {
   const [page,setPage] = useState(1)
   const getData = async ()=>{
    try {
-    const response =  await axios.get('https://picsum.photos/v2/list',{
+    const api_key = 'ec81cd95eecd4503b6a93d6001c82694'
+    const response =  await axios.get(`https://api.rawg.io/api/platforms?key=${api_key}`,{
       params:{
         page:page,
-        limit:15
+        page_size:10
       }
     })
-   setuserData(response.data)
-   console.log(response.data)
+
+   setuserData(response.data.results)
+   console.log(response.data.results)
    } catch (error) {
     console.log(error.message)
    }
@@ -25,22 +27,23 @@ const App = () => {
   },[page])
   
   return (
-    <div className='w-full min-h-screen bg-black p-10'>
-     
-    <div  className='w-full flex flex-wrap gap-12 mt-10'>
-      {userData.map((item)=>(
-        <div key={item.id} className='card w-60 h-60 rounded-md bg-amber-50'>
-          <img className='h-40 w-full object-cover' src={item.download_url} alt="" />
-          <h1 className='text-xl font-semibold text-center'>{item.author}</h1>
-          </div>
-      ))}
+   <div className='w-full h-screen bg-black text-white'>
+    <div className='Navbar w-full backdrop:2xl: border-b border-gray-600 flex items-center justify-between p-4'>
+    <h1><span></span>GameList</h1>
+    <div >
+      <a className='hover:underline' href="">Home</a>
+      <a href="">Game</a>
+      <a href="">Favorites</a>
     </div>
-   <div className='w-full mt-20 flex justify-center items-center gap-10'>
-     <button onClick={()=>{page>1 && setPage(page-1)}} className='w-20 h-10 rounded-md bg-red-500'>prev</button>
+    <div className='flex gap-2 '>
+      <div className='bg-zinc-800'>
+        <input className='' type="text" placeholder="Search games..." />
+      </div>
+      <h3>profile</h3>
+    </div>
+    </div>  
 
-    <button onClick={()=>setPage(page+1)} className='w-20 h-10 rounded-md bg-blue-500'>next</button>
    </div>
-    </div>
   )
 }
 
